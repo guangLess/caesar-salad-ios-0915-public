@@ -18,52 +18,53 @@
     NSLog(@"HELLO");
 
     
-    NSInteger x = [self numberOfString:@"O"];
     
+    NSInteger x = [self numberOfString:@"Z"];
     NSLog(@"%ld",(long)x);
-    NSLog(@"%@",[self stingForNumbers:79]);
-    //([string characterAtIndex:0] + 2);
-    //[self ascciiWithLetter];
     
-    // test
+    NSLog(@"%@",[self stingForNumbers:117]);
     
-    [self encodeWithMessage:@"Z" andOffset:2];
+    NSString * testEncode = [self encodeWithMessage:@"F" andOffset:2];
+
     
-    [self myOwnTable];
+    NSLog(@"testEncode %@", testEncode);
+    
+    //[self myOwnTable];
 }
 
 -(NSString *)encodeWithMessage:(NSString *)message andOffset:(NSInteger)key{ // put into number >> read number >> print out letters
     
-    NSInteger offSetPassNumber = ([self numberOfString:message] + key);
-    NSString * offSetString = [self stingForNumbers: offSetPassNumber];
-    
-    NSLog(@" %@ offset TO this -%@",message,offSetString);
 
-    return offSetString;
+    NSDictionary * table = [self myOwnTable];
+    NSInteger intValueFromMess = [ [table allKeysForObject:message][0] integerValue ];
     
+    NSInteger offSet = intValueFromMess + key ;
+    NSString * offSetString = [NSString stringWithFormat:@"%ld",(long)offSet];
+    NSString * codedString = table[offSetString];
+    
+    return codedString;
 }
 
 
 -(NSDictionary *)myOwnTable{
     
-   
      NSString * filePath = [[NSBundle mainBundle] pathForResource:@"myTableAssci" ofType:@"txt"];
      NSError *error;
      NSString *fileContents = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
      NSArray  *stateList = [fileContents componentsSeparatedByString:@"\n"];
-    NSLog(@"stateList%@", stateList);
+     //NSLog(@"stateList%@", stateList);
     
     NSMutableDictionary * madeAsciTable = [[NSMutableDictionary alloc] init];
-    
+
     for (NSString * eachCouple in stateList) {
         NSArray * eachPair = [eachCouple componentsSeparatedByString:@","];
-        NSLog(@"eachCouple is %@", eachPair);
+        //NSLog(@"eachCouple is %@", eachPair);
         [ madeAsciTable setValue: eachPair[1] forKey: eachPair[0] ];
     }
     
-    NSLog(@" madeAsciTable %@", madeAsciTable);
+    //NSLog(@" madeAsciTable %@", madeAsciTable);
 
-    return NO;
+    return madeAsciTable;
 }
 
 -(NSString *)decodeWithMessage:(NSString *)encodedMessage
@@ -75,15 +76,24 @@
 
 -(NSInteger)numberOfString:(NSString *)string{
     
-    NSInteger x = [string characterAtIndex:0];
-
+    
+    NSDictionary * acssiTable = [self myOwnTable];
+    NSString * testInt = [acssiTable allKeysForObject:string][0];
+    NSInteger x = [testInt integerValue];
+    NSLog(@" test Interger = %@", testInt);
+    
     return x;
 }
 
 -(NSString *)stingForNumbers:(NSInteger )number {
     
-    NSString * s = [NSString stringWithFormat:@"%c",number];
-    return s;
+    NSDictionary * acssiTable = [self myOwnTable];
+    NSString * numberToString = [NSString stringWithFormat:@"%ld", (long)number];
+    NSString * testInt = acssiTable[numberToString];
+    
+    NSLog(@" test String = %@", testInt);
+    
+    return testInt;
 }
 
 
