@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FISCaesarCipher.h"
 
 @interface FISAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+//@property FISCaesarCipher * fisc ;
 
 @end

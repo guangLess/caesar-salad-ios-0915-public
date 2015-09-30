@@ -18,6 +18,9 @@
     [self.window setRootViewController:[[UIViewController alloc] init]];
     [self.window makeKeyAndVisible];
     
+    FISCaesarCipher * fisc = [[FISCaesarCipher alloc] init];
+    
+    [fisc hello];
     return YES;
 }
 
