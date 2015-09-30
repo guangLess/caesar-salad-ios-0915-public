@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		623EB4201BBC6A630000B47A /* myTableAssci.txt in Resources */ = {isa = PBXBuildFile; fileRef = 623EB41F1BBC6A630000B47A /* myTableAssci.txt */; settings = {ASSET_TAGS = (); }; };
 		7237D70119381AE0005AC50A /* FISCaesarCipher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237D70019381AE0005AC50A /* FISCaesarCipher.m */; };
 		7237D70419381B11005AC50A /* FISCaesarCipherSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 7237D70319381B11005AC50A /* FISCaesarCipherSpec.m */; };
 		72A276DF19381A5400CC123F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A276DE19381A5400CC123F /* Foundation.framework */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		384EA9271CCF264EFC2395A8 /* Pods-CaesarCipherTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CaesarCipherTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CaesarCipherTests/Pods-CaesarCipherTests.release.xcconfig"; sourceTree = "<group>"; };
+		623EB41F1BBC6A630000B47A /* myTableAssci.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myTableAssci.txt; sourceTree = SOURCE_ROOT; };
 		7237D6FF19381AE0005AC50A /* FISCaesarCipher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISCaesarCipher.h; sourceTree = "<group>"; };
 		7237D70019381AE0005AC50A /* FISCaesarCipher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISCaesarCipher.m; sourceTree = "<group>"; };
 		7237D70319381B11005AC50A /* FISCaesarCipherSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISCaesarCipherSpec.m; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			children = (
 				7237D6FF19381AE0005AC50A /* FISCaesarCipher.h */,
 				7237D70019381AE0005AC50A /* FISCaesarCipher.m */,
+				623EB41F1BBC6A630000B47A /* myTableAssci.txt */,
 				72A276F019381A5400CC123F /* Images.xcassets */,
 				72A276ED19381A5400CC123F /* FISAppDelegate.h */,
 				72A276EE19381A5400CC123F /* FISAppDelegate.m */,
@@ -245,6 +248,7 @@
 			files = (
 				72A276E919381A5400CC123F /* InfoPlist.strings in Resources */,
 				72A276F119381A5400CC123F /* Images.xcassets in Resources */,
+				623EB4201BBC6A630000B47A /* myTableAssci.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

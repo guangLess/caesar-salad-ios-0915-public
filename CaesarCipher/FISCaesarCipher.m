@@ -28,6 +28,8 @@
     // test
     
     [self encodeWithMessage:@"Z" andOffset:2];
+    
+    [self myOwnTable];
 }
 
 -(NSString *)encodeWithMessage:(NSString *)message andOffset:(NSInteger)key{ // put into number >> read number >> print out letters
@@ -41,14 +43,35 @@
     
 }
 
+
+-(NSDictionary *)myOwnTable{
+    
+   
+     NSString * filePath = [[NSBundle mainBundle] pathForResource:@"myTableAssci" ofType:@"txt"];
+     NSError *error;
+     NSString *fileContents = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
+     NSArray  *stateList = [fileContents componentsSeparatedByString:@"\n"];
+    NSLog(@"stateList%@", stateList);
+    
+    NSMutableDictionary * madeAsciTable = [[NSMutableDictionary alloc] init];
+    
+    for (NSString * eachCouple in stateList) {
+        NSArray * eachPair = [eachCouple componentsSeparatedByString:@","];
+        NSLog(@"eachCouple is %@", eachPair);
+        [ madeAsciTable setValue: eachPair[1] forKey: eachPair[0] ];
+    }
+    
+    NSLog(@" madeAsciTable %@", madeAsciTable);
+
+    return NO;
+}
+
 -(NSString *)decodeWithMessage:(NSString *)encodedMessage
                      andOffset:(NSInteger)key{
     
     NSLog(@"HELLO 2");
     return  @"HELLO 2";
 }
-
-
 
 -(NSInteger)numberOfString:(NSString *)string{
     
